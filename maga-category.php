@@ -3,7 +3,7 @@
 Plugin Name: Maga Category Images
 Plugin URI: http://divisionentrecero.mx
 Description: Allows us to associate an image to a given category.
-Version: 1.0
+Version: 1.2.1
 Author: Ricardo Magallanes Arco (@rMaga56)
 Author URI: http://divisionentrecero.mx
 License: GPL
@@ -38,7 +38,7 @@ class CatImgHandler
 			if(!in_array($r->Category_ID,$ids))
 			{
 				$file = $wpdb->get_var(Controller::getFileName($r->Category_ID,$prefix));
-				$path = "../wp-content/plugins/maga-category/img/".$file;
+				$path = "../wp-content/plugins/maga-category-images/img/".$file;
 				unlink($path);
 				$wpdb->query(Controller::deleteRow($r->Category_ID,$prefix));
 			}
@@ -53,7 +53,7 @@ class CatImgHandler
 		if($check != 0)
 		{
 			$res = $wpdb->get_var(Controller::getFileName($catId,$prefix));
-			return ''.get_bloginfo("url").'/wp-content/plugins/maga-category/img/'.$res;
+			return ''.get_bloginfo("url").'/wp-content/plugins/maga-category-images/img/'.$res;
 		}
 	}
 
@@ -90,8 +90,8 @@ class CatImgHandler
 		
 		foreach($res as $elem)
 		{
-			$path = get_bloginfo('url').'/wp-content/plugins/maga-category/img/'.$elem->Image_Path;
-			$delPath = get_bloginfo('url').'/wp-content/plugins/maga-category/system/Delete.png';
+			$path = get_bloginfo('url').'/wp-content/plugins/maga-category-images/img/'.$elem->Image_Path;
+			$delPath = get_bloginfo('url').'/wp-content/plugins/maga-category-images/system/Delete.png';
 			$tbl.= '<tr><td>'.$elem->Category_ID.'</td><td>'.$elem->name.'</td><td><center><a class = "colorbox" href = "'.$path.'"><img src = "'.$path.'" class = "myImage"/></a></center></td>
 			<td><center><img src = "'.$delPath.'" class = "delIcon" onclick = "deleteRow('.$elem->Category_ID.');"/></center></td></tr>';
 		}
@@ -112,7 +112,7 @@ class CatImgHandler
 		$prefix = $wpdb->prefix;
 		$id = $_GET['myId'];
 		$file = $wpdb->get_var(Controller::getFileName($id,$prefix));
-		$path = "../wp-content/plugins/maga-category/img/".$file;
+		$path = "../wp-content/plugins/maga-category-images/img/".$file;
 		unlink($path);
 		$wpdb->query(Controller::deleteRow($id,$prefix));
 		die($this->getSettingsTable($prefix));
@@ -133,7 +133,7 @@ class CatImgHandler
 		$prefix = $wpdb->prefix;
 		$sql = Controller::dropTable($prefix);
 		$wpdb->query($sql);
-		$files = glob(ABSPATH.'wp-content/plugins/maga-category/img/*');
+		$files = glob(ABSPATH.'wp-content/plugins/maga-category-images/img/*');
 		foreach($files as $f)
 		{
 			unlink($f);

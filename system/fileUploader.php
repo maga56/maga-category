@@ -11,7 +11,7 @@
 	}
 	else
 	{
-		$target_path = '../wp-content/plugins/maga-category/img/';
+		$target_path = '../wp-content/plugins/maga-category-images/img/';
 		$extension = '.'.str_replace('image/','',$_FILES['myFile']['type']);
 		$final = $target_path.$catId.$extension;
 
@@ -19,7 +19,7 @@
 		if($check != 0)
 		{
 			$file = $wpdb->get_var(Controller::getFileName($catId));
-			unlink('../wp-content/plugins/maga-category/img/'.$file);
+			unlink('../wp-content/plugins/maga-category-images/img/'.$file);
 		}
 	
 		if(move_uploaded_file($_FILES['myFile']['tmp_name'],$final))

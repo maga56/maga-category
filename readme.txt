@@ -3,15 +3,15 @@ Contributors: maga56
 Tags: category,images
 Requires at least: 3.3.1
 Tested up to: 3.5
-Stable tag: 1.2
+Stable tag: 1.2.1
 
-Maga Category Images v1.2 By Ricardo Magallanes.
+Maga Category Images v1.2.1 By Ricardo Magallanes.
 
 Associates an image file (jpg or png) to a given category.
 
 == Description ==
 
-Maga Category Images v1.1 By Ricardo Magallanes.
+Maga Category Images v1.2.1 By Ricardo Magallanes.
 
 Associates an image file (jpg or png) to a given category.
 
@@ -19,7 +19,7 @@ Associates an image file (jpg or png) to a given category.
 
 Setup Instructions:
 
-1. Drag the 'maga-category' folder into your Plugins Folder.
+1. Drag the 'maga-category-images' folder into your Plugins Folder.
 
 2. Find the plugin in the Wordpress Admin and Activate it.
 
@@ -27,7 +27,7 @@ Setup Instructions:
 
 4. Fill out the form, choosing the images you want and the category you wish to associate them with.
 
-5. In your wordpress theme.. you can use two functions, that are called invoking the $maga object.
+5. In your wordpress theme.. you can use two functions that are called invoking the $maga object.
 
 	$maga->getSpecficImage($id) : Returns the url of the image corresponding to that category. This method can be used anywhere as long as you can fetch the ID you want.
 
@@ -35,7 +35,7 @@ Setup Instructions:
 
 Example Usage:
 
-'<?php if($maga) : ?>
+`<?php if($maga) : ?>
 		<img src = "<?php echo $maga->getImageInCategory(); ?>"/>		
 <?php endif; ?>	
 
@@ -44,6 +44,18 @@ Example Usage:
 <?php endif; ?>`
 
 == Upgrade Notice ==
+
+==Upgrading to 1.2.1==
+
+If you are upgrading from an older version of this plugin it is very important that you backup your img folder found on this plugin's diretory before you upgrade.
+
+After you update the plugin overwrite the img folder with the old one, otherwise you will lose your images.
+
+I will provide a fix so that this is not necessary on the next update. Sorry for the inconvenience.
+
+==1.2.1==
+
+I reorganized the files so that the automatic plugin installer would work properly.
 
 ==1.2==
 
